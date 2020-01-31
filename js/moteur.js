@@ -8,6 +8,7 @@ class Thermique extends Moteur{
     constructor(){
         super();
         this.name = "thermique";
+        this.autonomie = 600;
         this.capacite = 40;
     }
 }

@@ -30,6 +30,10 @@ class Moto{
         console.log("on coupe le moteur");
         this.moteur.marche = false;
     }
+    roule(distance){
+        console.log("conduite sur une distance de " + distance + "km");
+        this.moteur.autonomie -= distance;
+    }
 }
 
 class DeuxRoues extends Moto{
@@ -49,4 +53,11 @@ class TroisRoues extends Moto{
 const test_moto = () => {
     let maMoto = new DeuxRoues("Ma moto thermique", new Thermique());
     console.log(maMoto.moteur.name);
+    console.log("Autonomie : " + maMoto.moteur.autonomie + "km");
+    maMoto.contact();
+    maMoto.demarre();
+    maMoto.roule(30);
+    maMoto.decontact();
+    maMoto.coupe();
+    console.log("Autonomie restante : " + maMoto.moteur.autonomie + "km");
 }
